@@ -1,58 +1,42 @@
+<div align="center">
+
 # 🎥 YouTube Clone Backend
 
-> A scalable backend for a YouTube-like video streaming platform built with Node.js, Express, TypeScript, MongoDB, Redis, BullMQ, Docker, and AWS.
+A scalable backend for a YouTube-like video streaming platform built with **Node.js**, **TypeScript**, **Express**, **MongoDB**, **Redis**, **BullMQ**, **Docker**, and **AWS**.
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+<p>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express">
+  <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white">
+  <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white">
+  <img src="https://img.shields.io/badge/BullMQ-FF5733?style=flat-square">
+</p>
+
+</div>
+
+---
+
+## 📖 Overview
+
+This project is a production-inspired backend for a video streaming platform. It focuses on scalable architecture, asynchronous processing, secure authentication, and efficient media handling.
 
 ---
 
 ## ✨ Features
 
-- JWT Authentication
-- Video Upload API
-- Redis-based View Counter
-- BullMQ Background Workers
-- FFmpeg Video Processing
-- HLS Streaming
-- MongoDB Aggregation
-- AWS S3 Storage
-- Docker Support
-- TypeScript Architecture
+- 🔐 JWT Authentication
+- 🎥 Video Upload API
+- ⚡ Redis-based View Counter
+- 🔄 BullMQ Background Jobs
+- 🎬 FFmpeg HLS Transcoding
+- ☁️ AWS S3 Storage
+- 🐳 Docker Support
+- 📊 MongoDB Aggregation & Indexing
 
 ---
 
-# Architecture
-
-```mermaid
-flowchart LR
-A[Client] --> B[Express API]
-B --> C[Redis]
-B --> D[BullMQ]
-D --> E[FFmpeg Worker]
-E --> F[S3 Storage]
-B --> G[MongoDB]
-```
-
----
-
-## View Counter Flow
-
-```mermaid
-flowchart LR
-A[View Request]
---> B[Redis INCRBY]
---> C[BullMQ Worker]
---> D[MongoDB Bulk Update]
-```
-
----
-
-## Tech Stack
+## 🛠 Tech Stack
 
 | Category | Technologies     |
 | -------- | ---------------- |
@@ -62,12 +46,27 @@ A[View Request]
 | Cache    | Redis            |
 | Queue    | BullMQ           |
 | Storage  | AWS S3           |
-| Video    | FFmpeg           |
+| Media    | FFmpeg           |
 | DevOps   | Docker           |
 
 ---
 
-## Folder Structure
+## 🏗 System Architecture
+
+```mermaid
+flowchart LR
+Client --> API
+API --> Redis
+API --> MongoDB
+Redis --> BullMQ
+BullMQ --> Worker
+Worker --> FFmpeg
+FFmpeg --> S3
+```
+
+---
+
+## 📁 Project Structure
 
 ```text
 src/
@@ -83,49 +82,35 @@ src/
 
 ---
 
-## Installation
+## 🚀 Getting Started
+
+### Clone the repository
 
 ```bash
-git clone <repo-url>
-
+git clone https://github.com/your-username/backend-project.git
 cd backend-project
+```
 
+### Install dependencies
+
+```bash
 npm install
 ```
 
----
-
-## Environment Variables
+### Configure environment
 
 ```env
 PORT=5000
-
 MONGODB_URI=
-
 REDIS_URL=
-
 ACCESS_TOKEN_SECRET=
-
 REFRESH_TOKEN_SECRET=
-
 AWS_ACCESS_KEY=
-
 AWS_SECRET_KEY=
-
 AWS_BUCKET_NAME=
 ```
 
----
-
-## Run with Docker
-
-```bash
-docker compose up -d
-```
-
----
-
-## Development
+### Start the development server
 
 ```bash
 npm run dev
@@ -133,43 +118,34 @@ npm run dev
 
 ---
 
-## API Endpoints
+## 📈 Performance Optimizations
 
-| Method | Endpoint               |
-| ------ | ---------------------- |
-| POST   | /api/v1/users/register |
-| POST   | /api/v1/users/login    |
-| GET    | /api/v1/videos         |
-| POST   | /api/v1/videos         |
-| POST   | /api/v1/comments       |
-| GET    | /api/v1/health         |
+- Redis atomic counters for view tracking
+- Background processing with BullMQ
+- MongoDB indexing for fast queries
+- Asynchronous media transcoding
+- Chunked uploads with FFmpeg
 
 ---
 
-## Performance Optimizations
+## 🛣 Roadmap
 
-- Redis atomic counters for views
-- Background jobs with BullMQ
-- MongoDB indexing
-- Aggregation pipelines
-- Chunked video uploads
-- HLS transcoding
-- Dockerized deployment
-- TypeScript type safety
-
----
-
-## Future Improvements
-
-- Kubernetes Deployment
-- CI/CD Pipeline
-- Recommendation Engine
-- Notifications
-- WebSockets
-- Analytics Dashboard
+- [x] Authentication
+- [x] Video Upload
+- [x] Redis Caching
+- [x] Background Workers
+- [ ] Recommendation Engine
+- [ ] Live Streaming
+- [ ] Notifications
 
 ---
 
-## License
+## 🤝 Contributing
 
-MIT
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
