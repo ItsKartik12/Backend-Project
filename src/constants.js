@@ -1,0 +1,1 @@
+export const DB_NAME = "videotube"; // or whatever project name you want
