@@ -9,7 +9,7 @@ dotenv.config({
 
 const PORT = process.env.PORT || 8000;
 
-connectDB()
+connectDB() 
     .then(() => {
         app.on("error", (error) => {
             console.error("Express App Error: ", error);
